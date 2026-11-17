@@ -3,7 +3,7 @@ name = "SigmaOS-a2dp"
 tier = 2
 stability = "scaffold"
 language = "rust"
-description = "a2dp component"
+description = "A2DP"
 upstream = []
 
 [contract]
