@@ -1,64 +1,50 @@
-# SigmaOS-a2dp Component Wiki
+# SigmaOS-SigmaOS-a2dp Component Wiki
 
 ## Overview
-SigmaOS-a2dp is a SigmaOS component providing A2DP (Advanced Audio Distribution Profile) Bluetooth audio streaming support for the SigmaOS desktop environment. It demonstrates Bluetooth audio integration and wireless audio streaming within the SigmaOS ecosystem.
+SigmaOS-SigmaOS-a2dp provides A2DP for the SigmaOS operating system. It demonstrates the subsystem and integration within the SigmaOS ecosystem, following the principles of clear abstraction and deterministic initialization.
 
 ## Principles
 - Single Responsibility
-- Bluetooth Audio Abstraction
-- Fail-Fast on Audio Streaming Errors
-- Deterministic Streaming Initialization
-- Clear Abstraction Over A2DP API
-- Composition over Inheritance for audio codecs
+- SigmaOS-a2dp Abstraction
+- Fail-Fast on SigmaOS-a2dp Initialization Errors
+- Deterministic SigmaOS-a2dp Setup
+- Clear Abstraction Over SigmaOS-a2dp APIs
+- Composition over Inheritance for SigmaOS-a2dp extensions
 
 ## Architecture
-SigmaOS-a2dp follows a Bluetooth audio streaming pattern:
-- **Codec Management**: Handles selection and management of audio codecs (aptX, SBC, AAC)
-- **Stream Configuration**: Manages audio channels, sample rates, and bitrates
-- **Device Connection**: Handles Bluetooth device pairing and connection lifecycle
-- **Error Handling**: Fail-fast on streaming failures or unsupported codecs
+SigmaOS-SigmaOS-a2dp follows a SigmaOS-a2dp pattern:
+- **SigmaOS-a2dp Core**: Provides SigmaOS-a2dp support, SigmaOS-a2dp management, and SigmaOS-a2dp tracking
+- **Management**: Supports SigmaOS-a2dp management, SigmaOS-a2dp configuration, and SigmaOS-a2dp lifecycle
+- **Tracking**: Supports SigmaOS-a2dp status, SigmaOS-a2dp tracking, and SigmaOS-a2dp lifecycle
+- **Error Handling**: Fail-fast on invalid SigmaOS-a2dp configurations or unsupported SigmaOS-a2dp types
 
 ## API
 The component provides the following public APIs:
-- `a2dp::codec::list()` - List supported audio codecs
-- `a2dp::codec::capabilities(codec_id)` - Get codec capabilities
-- `a2dp::stream::start(stream_id)` - Start audio streaming
-- `a2dp::stream::stop(stream_id)` - Stop audio streaming
-- `a2dp::device::connect(device_id)` - Connect to Bluetooth device
-- Error types for unsupported codecs or streaming failures
+-  - Manage a SigmaOS-a2dp by given configuration
+-  - Register a SigmaOS-a2dp by given name
+-  - Get SigmaOS-a2dp status and SigmaOS-a2dp availability
+-  - Track SigmaOS-a2dp management and SigmaOS-a2dp tracking
+- Error types for SigmaOS-a2dp failure scenarios or unsupported SigmaOS-a2dp types
 
 ## Test Structure (Arrange-Act-ASSERT)
 All tests follow the AAA pattern:
-1. **Arrange**: Set up test environment with specific audio codec configuration
-2. **Act**: Execute the code under test (codec selection, stream setup)
-3. **Assert**: Verify the expected audio streaming results
+1. **Arrange**: Set up test environment with specific SigmaOS-a2dp configuration
+2. **Act**: Execute the code under test (SigmaOS-a2dp init, SigmaOS-a2dp management)
+3. **Assert**: Verify the expected SigmaOS-a2dp results
 
 Example:
-```rust
-#[test]
-fn test_a2dp_codec_selection_aaa() {
-    // Arrange
-    let preferred_codecs = vec!["aptX".to_string(), "SBC".to_string()];
-    
-    // Act
-    let selected = a2dp::codec::select(preferred_codecs);
-    
-    // Assert
-    assert!(selected.is_some());
-    assert!(selected.unwrap().contains("SBC"));  // SBC is mandatory fallback
-}
-```
+
 
 ## Development
-- Follows Rust best practices with `#![forbid(unsafe_code)]`
-- A2DP streaming is best-effort; gracefully degrades on unsupported codecs
-- Comprehensive error types for all streaming failure scenarios
-- Unit tests provided for codec selection and stream configuration
-- Integration tests for full A2DP flow with test device mocks
+- Follows Rust best practices with 
+- SigmaOS-a2dp initialization is best-effort; gracefully degrades on unsupported configurations
+- Comprehensive error types for all SigmaOS-a2dp failure scenarios
+- Unit tests provided for SigmaOS-a2dp management and configuration
+- Integration tests for full SigmaOS-a2dp system with actual SigmaOS-a2dp integration
 
 ## TODO
-- Add support for aptX HD and LDAC codecs
-- Expand device connection management
-- Add audio format configuration APIs
-- Create integration tests with actual Bluetooth hardware
-- Implement codec priority and fallback logic
+- Add support for additional SigmaOS-a2dp types
+- Expand SigmaOS-a2dp capabilities (SigmaOS-a2dp features, SigmaOS-a2dp configurations, SigmaOS-a2dp tracking)
+- Add lifecycle features (SigmaOS-a2dp tracking, SigmaOS-a2dp lifecycle, SigmaOS-a2dp propagation)
+- Create integration tests with actual SigmaOS-a2dp systems and SigmaOS-a2dp integration
+- Implement SigmaOS-a2dp persistence and SigmaOS-a2dp state management
